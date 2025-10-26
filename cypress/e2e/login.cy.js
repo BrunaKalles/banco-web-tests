@@ -5,7 +5,7 @@ describe('Login', () => {
     cy.screenshot('Após visitar página')
   })
   
-  it.only('Login com dados válidos deve permitir a entrada no sistema', () => {
+  it('Login com dados válidos deve permitir a entrada no sistema', () => {
 
     cy.get('#username').click().type('julio.lima')
     cy.get('#senha').click().type('123456')
