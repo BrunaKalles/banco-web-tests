@@ -1,14 +1,14 @@
 describe('Login', () => {
   beforeEach(() => {
     //Arrange
-    cy.visit('http://localhost:4000')
+    cy.log('URL atual:', Cypress.env('URL'))
+    cy.visit(Cypress.env('URL'))
     cy.screenshot('Após visitar página')
   })
   
   it('Login com dados válidos deve permitir a entrada no sistema', () => {
-
     cy.fixture('credencias').then(credenciais => {
-      cy.get('#username').click().type(credenciais.valida.username)
+      cy.get('#username').click().type(credenciais.valida.usuario)
       cy.get('#senha').click().type(credenciais.valida.senha)
     })
 
@@ -23,8 +23,8 @@ describe('Login', () => {
   it('Login com dados inválidos deve apresentar mensagem de erro', () => {
      
     cy.fixture('credencias').then(credenciais => {
-      cy.get('#username').click().type(credenciais.inválida.username)
-      cy.get('#senha').click().type(credenciais.inválida.senha)
+      cy.get('#username').click().type(credenciais.invalida.usuario)
+      cy.get('#senha').click().type(credenciais.invalida.senha)
     }) 
     cy.contains('button', 'Entrar').click()
 
