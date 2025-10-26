@@ -1,8 +1,8 @@
 describe('Login', () => {
   beforeEach(() => {
     //Arrange
-    cy.log('URL atual:', Cypress.env('URL'))
-    cy.visit(Cypress.env('URL'))
+  
+    cy.visit('/')
     cy.screenshot('Após visitar página')
   })
   
